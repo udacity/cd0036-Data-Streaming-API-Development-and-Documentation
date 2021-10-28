@@ -1,3 +1,5 @@
+# All the required software and dependencies for this course are included in the workspaces in the student classroom.  We highly recommend using these workspaces to complete the exercises and project in this course.
+
 # Windows Users
 It is HIGHLY recommended to install the 10 October 2020 Update: https://support.microsoft.com/en-us/windows/get-the-windows-10-october-2020-update-7d20e88c-0568-483a-37bc-c3885390d212
 
