@@ -1,37 +1,40 @@
-# Purpose of This Repo
+# Windows Users
+It is HIGHLY recommended to install the 10 October 2020 Update: https://support.microsoft.com/en-us/windows/get-the-windows-10-october-2020-update-7d20e88c-0568-483a-37bc-c3885390d212
 
-This repo is meant to be used to keep things organized during content development and act as the source of truth for all projects and exercises related to this course.
+You will then want to install the latest version of Docker on Windows: https://docs.docker.com/docker-for-windows/install/
 
-## Folder Structure
 
-### Lesson Folder
 
-This repo contains a folder for each `lesson` and one `project` folder.
+#  Using Docker for your Exercises
 
-Example
+You will need to use Docker to run the exercises on your own computer. You can find Docker for your operating system here: https://docs.docker.com/get-docker/
+
+It is recommended that you configure Docker to allow it to use up to 2 cores and 6 GB of your host memory for use by the course workspace. If you are running other processes using Docker simultaneously with the workspace, you should take that into account also.
+
+
+
+The docker-compose file at the root of the repository creates 9 separate containers:
+
+- Redis
+- Zookeeper (for Kafka)
+- Kafka
+- Banking Simulation
+- Trucking Simulation
+- STEDI (Application used in Final Project)
+- Kafka Connect with Redis Source Connector
+- Spark Master
+- Spark Worker
+
+It also mounts your repository folder to the Spark Master and Spark Worker containers as a volume  `/home/workspace`, making your code changes instantly available within to the containers running Spark.
+
+Let's get these containers started!
+
 ```
-lesson-1-hello
-lesson-2-world
-lesson-3-foo
-lesson-4-bar
-project
+cd [repositoryfolder]
+docker-compose up
 ```
 
-Each `lesson` folder is named using the naming convention of `lesson-#-name-of-lesson`.
-
-Example
+You should see 9 containers when you run this command:
 ```
-lesson-1-hello
+docker ps
 ```
-
-Four lesson folders have been provided as a template; However, you may need to add more or possibly use less than four depending on what is needed.
-
-If you require an additional lesson folder, you can make a copy of the folder and paste it into the root directory.
-
-### Exercises Folder
-
-Each `lesson` folder contains an `exercises` folder. This `exercises` folder should contain all files and instructions necessary for the exercises along with the solution. The solutions for these exercises will be shared with students. See the `README` in the `exercises` folder for information about folder structure.
-
-### Project Folder
-
-The `project` folder should contain all files and instructions necessary for setup. If possible, a set of instructions should be provided for both Udacity workspaces and a way to work locally (for both MacOS and Windows OS). At a minimum, one set of instructions should be provided. A `README` template has been provided in the project folder. This template layout should be used to write your README.
